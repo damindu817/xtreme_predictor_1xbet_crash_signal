@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Xtreme Crash Predictor : 1xbet</title>
+<style>
+    body {
+      background: #000;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1, h2, .signal-time, .next-signal {
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    .circle {
+      width: 200px;
+      height: 200px;
+      background-color: #1a0000;
+      border: 5px solid white;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px orange, 0 0 60px orange, 0 0 90px orange;
+    }
+    .winner {
+      color: white;
+      font-size: 1.5em;
+      text-shadow: 0 0 10px purple, 0 0 20px purple;
+    }
+    .signal-box {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      font-size: 1.3em;
+      text-shadow: 0 0 8px #00ffff;
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    }
+    .arrows {
+      display: flex;
+      justify-content: center;
+      font-size: 2em;
+      color: red;
+      animation: arrowsMove 1s infinite alternate;
+    }
+    @keyframes arrowsMove {
+      from { transform: translateX(-10px); }
+      to { transform: translateX(10px); }
+    }
+    .next-signal {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+    .loading-dots::after {
+      content: '';
+      display: inline-block;
+      animation: dots 1.5s steps(3, end) infinite;
+    }
+    @keyframes dots {
+      0% { content: ''; }
+      33% { content: '.'; }
+      66% { content: '..'; }
+      100% { content: '...'; }
+    }
+    .btns {
+      margin-top: 40px;
+    }
+    .btns a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #222;
+      color: #00ffff;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #00ffff;
+    }
+    .signal-time {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+    .blinking {
+      animation: blinkEffect 1s infinite;
+    }
+    @keyframes blinkEffect {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+.title {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00fff7, #a600ff, #00fff7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px #00fff7, 0 0 20px #a600ff;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #00fff7, 0 0 20px #a600ff;
+  }
+  100% {
+    text-shadow: 0 0 20px #a600ff, 0 0 40px #00fff7;
+  }
+}
+
+
+.header-box {
+  animation: argbGlow 4s infinite alternate;
+  padding: 10px 20px;
+  margin: 20px auto;
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 12px;
+  outline: none;
+  color: #ffffff;
+  font-size: 2em;
+  box-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff, 0 0 30px #8000ff;
+  text-shadow: 0 0 10px #a855f7;
+}
+
+
+@keyframes argbGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
+  }
+  25% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.6), 0 0 20px rgba(0, 0, 255, 0.4), 0 0 30px rgba(0, 0, 255, 0.3);
+  }
+  75% {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.6), 0 0 20px rgba(255, 255, 0, 0.4), 0 0 30px rgba(255, 255, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4), 0 0 30px rgba(255, 0, 255, 0.3);
+  }
+}
+
+
+    .countdown-inside {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #ffffff;
+      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+    }
+
+    .countdown-blink { animation: blinkCountdown 1s infinite; }
+
+    
+@keyframes blinkCountdown {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+    
+      50% { opacity: 0.3; color: #ff4444; }
+    }
+</style>
+    
+</head>
+<body>
+<h1 class="header-box">Xtreme Crash Predictor : 1xbet</h1>
+<div class="signal-time">Live Time: <span id="live-time"></span></div>
+<div class="signal-time">Date: <span id="live-date"></span></div>
+<div class="arrows">&lt;&lt;&lt;</div>
+
+<div class="circle">
+  <div>
+    <div class="winner" id="next-signal">Next Signal Loading</div>
+    <div id="countdown" class="countdown-inside">Next in: 00:00</div>
+  </div>
+</div>
+    
+<div class="arrows" style="color: red; font-size: 2em; margin-top: 20px;">&gt;&gt;&gt;</div>
+<div class="signal-box">Odd - 5× | Guaranteed Win</div>
+<div id="countdown" style="margin-top:10px;font-size:1.2em;color:#00ffff;text-shadow:0 0 10px #00ffff;"></div>
+<div class="btns">
+<a href="https://chat.whatsapp.com/Jiyuy808D5Q2a8P7IEW72g" style="box-shadow: 0 0 10px #25D366; color: #25D366;" target="_blank">WhatsApp</a>
+<a href="https://t.me/+Ems_0HKtv_gwZmQ1" target="_blank">Telegram</a>
+</div>
+
+
+<script>
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('live-time').textContent = now.toLocaleTimeString();
+      document.getElementById('live-date').textContent = now.toISOString().split('T')[0];
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    const now = new Date();
+const anchorTime = new Date(now);
+anchorTime.setHours(20, 38, 0, 0);
+if (now < anchorTime) {
+  anchorTime.setDate(anchorTime.getDate() - 1);
+} // anchor signal start
+
+    const intervalMs = 5 * 60 * 1000;
+    let lastSignalBlockTime = null;
+    let showLoading = false;
+
+    // Create audio for sound alert
+    const alertSound = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
+
+    function updateNextSignal() {
+      const now = new Date();
+      let diff = now - anchorTime;
+      if (diff < 0) diff = 0;
+
+      const nextBlockTime = new Date(anchorTime.getTime() + Math.ceil(diff / intervalMs) * intervalMs);
+      const startTime = new Date(nextBlockTime);
+      const endTime = new Date(nextBlockTime.getTime() + 1 * 60 * 1000);
+
+      const displayString = `${startTime.getHours().toString().padStart(2, '0')}:${startTime.getMinutes().toString().padStart(2, '0')} / ${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`;
+
+      const nextSignalElem = document.getElementById("next-signal");
+
+      const timeDiffSec = Math.abs(startTime - now) / 1000;
+      if (timeDiffSec <= 10) {
+        nextSignalElem.classList.add("blinking");
+      } else {
+        nextSignalElem.classList.remove("blinking");
+      }
+
+      if (!lastSignalBlockTime || nextBlockTime.getTime() !== lastSignalBlockTime.getTime()) {
+        showLoading = true;
+        lastSignalBlockTime = nextBlockTime;
+        nextSignalElem.classList.add("loading-dots");
+        nextSignalElem.textContent = "Next Signal Loading";
+        setTimeout(() => {
+          showLoading = false;
+          nextSignalElem.classList.remove("loading-dots");
+          nextSignalElem.textContent = displayString;
+          alertSound.play().catch(e => console.log("Sound not played:", e));
+        }, 3000);
+      }
+
+      if (!showLoading) {
+        nextSignalElem.textContent = displayString;
+      }
+
+      // Countdown logic
+      const countdownElem = document.getElementById("countdown");
+      
+      const countdown = Math.max(0, Math.floor((startTime - now) / 1000));
+      const min = String(Math.floor(countdown / 60)).padStart(2, '0');
+      const sec = String(countdown % 60).padStart(2, '0');
+      countdownElem.textContent = `Next in: ${min}:${sec}`;
+      if (countdown <= 10) {
+        countdownElem.classList.add("countdown-blink");
+      } else {
+        countdownElem.classList.remove("countdown-blink");
+      }
+    
+    }
+
+    setInterval(updateNextSignal, 1000);
+    updateNextSignal();
+</script>
+    
+    
+
+<footer style="margin-top: 50px; color: white; text-shadow: 0 0 10px #ffffff;">
+  Design By : <a href="https://facebook.com/gdamith.lasantha" style="color: white; text-decoration: none;" target="_blank">Damith Lasantha</a>
+</footer>
+    
+</body>
+</html>
