@@ -92,73 +92,68 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-
-    .title {
-      font-size: 2.5em;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #00fff7, #a600ff, #00fff7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px #00fff7, 0 0 20px #a600ff;
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      0% {
-        text-shadow: 0 0 10px #00fff7, 0 0 20px #a600ff;
-      }
-      100% {
-        text-shadow: 0 0 20px #a600ff, 0 0 40px #00fff7;
-      }
-    }
-
-    .header-box {
-      animation: argbGlow 4s infinite alternate;
-      padding: 10px 20px;
-      margin: 20px auto;
-      display: inline-block;
-      border: 2px solid white;
-      border-radius: 12px;
-      outline: none;
-      color: #ffffff;
-      font-size: 2em;
-      box-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff, 0 0 30px #8000ff;
-      text-shadow: 0 0 10px #a855f7;
-    }
-
-    @keyframes argbGlow {
-      0% {
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
-      }
-      25% {
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3);
-      }
-      50% {
-        box-shadow: 0 0 10px rgba(0, 0, 255, 0.6), 0 0 20px rgba(0, 0, 255, 0.4), 0 0 30px rgba(0, 0, 255, 0.3);
-      }
-      75% {
-        box-shadow: 0 0 10px rgba(255, 255, 0, 0.6), 0 0 20px rgba(255, 255, 0, 0.4), 0 0 30px rgba(255, 255, 0, 0.3);
-      }
-      100% {
-        box-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4), 0 0 30px rgba(255, 0, 255, 0.3);
-      }
-    }
-
-    .countdown-inside {
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: #ffffff;
-      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
-    }
-
-    .countdown-blink {
-      animation: blinkCountdown 1s infinite;
-    }
-
-    @keyframes blinkCountdown {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; color: #ff4444; }
-    }
+.title {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00fff7, #a600ff, #00fff7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px #00fff7, 0 0 20px #a600ff;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #00fff7, 0 0 20px #a600ff;
+  }
+  100% {
+    text-shadow: 0 0 20px #a600ff, 0 0 40px #00fff7;
+  }
+}
+.header-box {
+  animation: argbGlow 4s infinite alternate;
+  padding: 10px 20px;
+  margin: 20px auto;
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 12px;
+  outline: none;
+  color: #ffffff;
+  font-size: 2em;
+  box-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff, 0 0 30px #8000ff;
+  text-shadow: 0 0 10px #a855f7;
+}
+@keyframes argbGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
+  }
+  25% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.6), 0 0 20px rgba(0, 0, 255, 0.4), 0 0 30px rgba(0, 0, 255, 0.3);
+  }
+  75% {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.6), 0 0 20px rgba(255, 255, 0, 0.4), 0 0 30px rgba(255, 255, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.4), 0 0 30px rgba(255, 0, 255, 0.3);
+  }
+}
+.countdown-inside {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #ffffff;
+  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+}
+.countdown-blink {
+  animation: blinkCountdown 1s infinite;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+}
+@keyframes blinkCountdown {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
 </style>
 </head>
 <body>
@@ -166,21 +161,18 @@
 <div class="signal-time">Live Time: <span id="live-time"></span></div>
 <div class="signal-time">Date: <span id="live-date"></span></div>
 <div class="arrows">&lt;&lt;&lt;</div>
-
 <div class="circle">
   <div>
     <div class="winner" id="next-signal">Next Signal Loading</div>
     <div id="countdown" class="countdown-inside">Next in: 00:00</div>
   </div>
 </div>
-
 <div class="arrows" style="color: red; font-size: 2em; margin-top: 20px;">&gt;&gt;&gt;</div>
 <div class="signal-box">Odd - 5× | Guaranteed Win</div>
 <div class="btns">
-  <a href="https://chat.whatsapp.com/Jiyuy808D5Q2a8P7IEW72g" style="box-shadow: 0 0 10px #25D366; color: #25D366;" target="_blank">WhatsApp</a>
-  <a href="https://t.me/+Ems_0HKtv_gwZmQ1" target="_blank">Telegram</a>
+<a href="https://chat.whatsapp.com/Jiyuy808D5Q2a8P7IEW72g" style="box-shadow: 0 0 10px #25D366; color: #25D366;" target="_blank">WhatsApp</a>
+<a href="https://t.me/+Ems_0HKtv_gwZmQ1" target="_blank">Telegram</a>
 </div>
-
 <script>
     function updateTime() {
       const now = new Date();
@@ -189,31 +181,24 @@
     }
     setInterval(updateTime, 1000);
     updateTime();
-
     const now = new Date();
     const anchorTime = new Date(now);
     anchorTime.setHours(20, 38, 0, 0);
     if (now < anchorTime) {
       anchorTime.setDate(anchorTime.getDate() - 1);
     }
-
     const intervalMs = 5 * 60 * 1000;
     let lastSignalBlockTime = null;
     let showLoading = false;
-
     const alertSound = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
-
     function updateNextSignal() {
       const now = new Date();
       let diff = now - anchorTime;
       if (diff < 0) diff = 0;
-
       const nextBlockTime = new Date(anchorTime.getTime() + Math.ceil(diff / intervalMs) * intervalMs);
       const startTime = new Date(nextBlockTime);
       const endTime = new Date(nextBlockTime.getTime() + 1 * 60 * 1000);
-
       const displayString = `${startTime.getHours().toString().padStart(2, '0')}:${startTime.getMinutes().toString().padStart(2, '0')} / ${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`;
-
       const nextSignalElem = document.getElementById("next-signal");
       const timeDiffSec = Math.abs(startTime - now) / 1000;
       if (timeDiffSec <= 10) {
@@ -221,7 +206,6 @@
       } else {
         nextSignalElem.classList.remove("blinking");
       }
-
       if (!lastSignalBlockTime || nextBlockTime.getTime() !== lastSignalBlockTime.getTime()) {
         showLoading = true;
         lastSignalBlockTime = nextBlockTime;
@@ -234,11 +218,9 @@
           alertSound.play().catch(e => console.log("Sound not played:", e));
         }, 3000);
       }
-
       if (!showLoading) {
         nextSignalElem.textContent = displayString;
       }
-
       const countdownElem = document.getElementById("countdown");
       const countdown = Math.max(0, Math.floor((startTime - now) / 1000));
       const min = String(Math.floor(countdown / 60)).padStart(2, '0');
@@ -250,11 +232,9 @@
         countdownElem.classList.remove("countdown-blink");
       }
     }
-
     setInterval(updateNextSignal, 1000);
     updateNextSignal();
 </script>
-
 <footer style="margin-top: 50px; color: white; text-shadow: 0 0 10px #ffffff;">
   Design By : <a href="https://facebook.com/gdamith.lasantha" style="color: white; text-decoration: none;" target="_blank">Damith Lasantha</a>
 </footer>
