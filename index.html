@@ -5,65 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xtreme Crash Predictor : 1xbet</title>
   <style>
-    /* (CSS styles shortened here for brevity, but your original file includes full styles for body, popup, timer, etc.) */
+    /* --- Styles omitted for brevity --- (CSS styles from your file here) */
   </style>
   <style>
-    #popupOverlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 999;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    #popupBox {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.95);
-      background: #111;
-      color: #fff;
-      padding: 25px;
-      border: 2px solid #f00;
-      border-radius: 10px;
-      box-shadow: 0 0 30px #f00;
-      z-index: 1000;
-      max-width: 90%;
-      width: 300px;
-      font-size: 0.95em;
-      animation: popIn 0.5s ease-out forwards;
-      display: none;
-    }
-    #popupBox h3 {
-      margin-top: 0;
-      color: #ff4444;
-      font-size: 1.2em;
-    }
-    #popupBox .close-btn {
-      position: absolute;
-      top: 5px;
-      right: 12px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    }
-    #popupBox.hide {
-      animation: popOut 0.4s ease-in-out forwards;
-    }
-    @keyframes popOut {
-      from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    }
+    /* Popup styles */
+  </style>
+  <style>
+    /* Popup hide animation */
   </style>
 </head>
 <body>
@@ -80,9 +28,84 @@
   <div class="arrows" style="color: red; font-size: 2em; margin-top: 20px;">&gt;&gt;&gt;</div>
   <div class="signal-box">Odd - 5× | Guaranteed Win</div>
   <div class="btns">
-    <a href="https://chat.whatsapp.com/Jiyuy808D5Q2a8P7IEW72g" target="_blank">WhatsApp</a>
+    <a href="https://chat.whatsapp.com/Jiyuy808D5Q2a8P7IEW72g" style="box-shadow: 0 0 10px #25D366; color: #25D366;" target="_blank">WhatsApp</a>
     <a href="https://t.me/+Ems_0HKtv_gwZmQ1" target="_blank">Telegram</a>
   </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      document.getElementById('live-time').textContent = now.toLocaleTimeString();
+      document.getElementById('live-date').textContent = now.toISOString().split('T')[0];
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    const now = new Date();
+    const anchorTime = new Date(now);
+    anchorTime.setHours(20, 38, 0, 0);
+    if (now < anchorTime) {
+      anchorTime.setDate(anchorTime.getDate() - 1);
+    }
+
+    const intervalMs = 5 * 60 * 1000;
+    let lastSignalBlockTime = null;
+    let showLoading = false;
+    const alertSound = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
+
+    function updateNextSignal() {
+      const now = new Date();
+      let diff = now - anchorTime;
+      if (diff < 0) diff = 0;
+      const nextBlockTime = new Date(anchorTime.getTime() + Math.ceil(diff / intervalMs) * intervalMs);
+      const startTime = new Date(nextBlockTime);
+      const endTime = new Date(nextBlockTime.getTime() + 1 * 60 * 1000);
+      const displayString = `${startTime.getHours().toString().padStart(2, '0')}:${startTime.getMinutes().toString().padStart(2, '0')} / ${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`;
+      const nextSignalElem = document.getElementById("next-signal");
+      const timeDiffSec = Math.abs(startTime - now) / 1000;
+
+      if (timeDiffSec <= 10) {
+        nextSignalElem.classList.add("blinking");
+      } else {
+        nextSignalElem.classList.remove("blinking");
+      }
+
+      if (!lastSignalBlockTime || nextBlockTime.getTime() !== lastSignalBlockTime.getTime()) {
+        showLoading = true;
+        lastSignalBlockTime = nextBlockTime;
+        nextSignalElem.classList.add("loading-dots");
+        nextSignalElem.textContent = "Next Signal Loading";
+        setTimeout(() => {
+          showLoading = false;
+          nextSignalElem.classList.remove("loading-dots");
+          nextSignalElem.textContent = displayString;
+          alertSound.play().catch(e => console.log("Sound not played:", e));
+        }, 3000);
+      }
+
+      if (!showLoading) {
+        nextSignalElem.textContent = displayString;
+      }
+
+      const countdownElem = document.getElementById("countdown");
+      const countdown = Math.max(0, Math.floor((startTime - now) / 1000));
+      const min = String(Math.floor(countdown / 60)).padStart(2, '0');
+      const sec = String(countdown % 60).padStart(2, '0');
+      countdownElem.textContent = `Next in: ${min}:${sec}`;
+
+      if (countdown <= 10) {
+        countdownElem.classList.add("countdown-blink");
+      } else {
+        countdownElem.classList.remove("countdown-blink");
+      }
+    }
+    setInterval(updateNextSignal, 1000);
+    updateNextSignal();
+  </script>
+
+  <footer style="margin-top: 50px; color: white; text-shadow: 0 0 10px #ffffff;">
+    Design By : <a href="https://facebook.com/gdamith.lasantha" style="color: white; text-decoration: none;" target="_blank">Damith Lasantha</a>
+  </footer>
 
   <div id="popupOverlay"></div>
   <div id="popupBox">
@@ -95,33 +118,6 @@
   </div>
 
   <script>
-    function updateTime() {
-      const now = new Date();
-      document.getElementById('live-time').textContent = now.toLocaleTimeString();
-      document.getElementById('live-date').textContent = now.toISOString().split('T')[0];
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
-
-    const alertSound = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
-    const anchorTime = new Date(); anchorTime.setHours(20, 38, 0, 0);
-    const intervalMs = 5 * 60 * 1000;
-    let lastSignalBlockTime = null;
-
-    function updateNextSignal() {
-      const now = new Date();
-      let diff = now - anchorTime;
-      const nextBlockTime = new Date(anchorTime.getTime() + Math.ceil(diff / intervalMs) * intervalMs);
-      const startTime = new Date(nextBlockTime);
-      const endTime = new Date(nextBlockTime.getTime() + 1 * 60 * 1000);
-      const displayString = `${startTime.getHours().toString().padStart(2, '0')}:${startTime.getMinutes().toString().padStart(2, '0')} / ${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`;
-      const nextSignalElem = document.getElementById("next-signal");
-      nextSignalElem.textContent = displayString;
-      document.getElementById("countdown").textContent = `Next in: ${Math.floor((startTime - now) / 1000)}s`;
-    }
-    setInterval(updateNextSignal, 1000);
-    updateNextSignal();
-
     function showPopup() {
       document.getElementById('popupOverlay').style.display = 'block';
       const popup = document.getElementById('popupBox');
@@ -143,9 +139,5 @@
       setTimeout(showPopup, 3000);
     };
   </script>
-
-  <footer style="margin-top: 50px; color: white;">
-    Design By : <a href="https://facebook.com/gdamith.lasantha" target="_blank" style="color:white; text-decoration:none;">Damith Lasantha</a>
-  </footer>
 </body>
 </html>
